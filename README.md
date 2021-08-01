@@ -48,20 +48,20 @@ mvn clean test
 Execution with report:
 mvn clean verify
 
-Execution without report and dev profile:
-mvn clean test -Dspring.profiles.active=dev
+Execution dev profile:
+mvn clean verify -Dspring.profiles.active=dev
 
-Execution without report and specific browser:
-mvn clean test -Dbrowser=chrome
+Execution specific browser:
+mvn clean verify -Dbrowser=chrome
 
-Execution without report and specific tags:
-mvn clean test -Dcucumber.options="--tags @regression"
+Execution specific tags:
+mvn clean verify -Dcucumber.options="--tags @regression"
 
-Execution without report and specific number of threads:
-mvn clean test -Dthreadcount=5
+Execution specific number of threads:
+mvn clean verify -Dthreadcount=5
 
 Execution all options:
-mvn clean test -Dbrowser=chrome -Dspring.profiles.active=dev -Dcucumber.options="--tags @regression" -Dthreadcount=5
+mvn clean verify -Dbrowser=chrome -Dspring.profiles.active=dev -Dcucumber.options="--tags @regression" -Dthreadcount=5
 ```
 
 ```java
