@@ -34,10 +34,10 @@ Currently are in use the following dependencies.
 
 ### Usage
 This framework is configurable for different properties like:
--Parallelism Thread Count
--Browser (chrome/firefox)
--Profiles (qa/dev/prod) 
--Cucumber tags
+<br /> -Parallelism Thread Count
+<br /> -Browser (chrome/firefox)
+<br /> -Profiles (qa/dev/prod) 
+<br /> -Cucumber tags
 
 ```java
 Command Line Execution
