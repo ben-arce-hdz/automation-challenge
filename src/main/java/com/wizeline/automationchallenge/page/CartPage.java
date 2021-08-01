@@ -15,9 +15,16 @@ public class CartPage extends BasePage{
 	@FindBy(css = ".cart_list .inventory_item_name")
 	private List<WebElement> productNameList;
 	
+	@FindBy(css = "#checkout")
+	private WebElement checkOutButton;
+	
 	public List<String> getProductNameList(){
 		return productNameList.stream()
 				.map(x -> x.getText())
 				.collect(Collectors.toList());
+	}
+	
+	public void clickOnCheckOut() {
+		click(checkOutButton);
 	}
 }

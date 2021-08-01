@@ -8,7 +8,7 @@ import io.cucumber.testng.CucumberOptions.SnippetType;
 
 @CucumberOptions(features = "classpath:features", 
 glue = "com.wizeline.automationchallenge", 
-tags= {"@shopping"},
+tags= {"@purchase"},
 plugin = {"pretty", "json:target/cucumber.json" }, 
 monochrome = true, snippets = SnippetType.CAMELCASE)
 public class TestRunner extends AbstractTestNGCucumberTests {

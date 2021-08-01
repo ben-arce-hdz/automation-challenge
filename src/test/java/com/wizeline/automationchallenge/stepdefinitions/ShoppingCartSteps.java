@@ -16,4 +16,9 @@ public class ShoppingCartSteps extends BaseSteps{
 	    			.as(Constants.PRODUCTS_NOT_MATCH).contains(expectedProduct);
 		}
 	}
+	
+	@Then("click on checkout")
+	public void clickOnCheckout() {
+		shoppingCartPage.clickOnCheckOut();
+	}
 }

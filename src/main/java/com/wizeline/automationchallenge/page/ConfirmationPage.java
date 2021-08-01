@@ -9,6 +9,10 @@ import com.wizeline.automationchallenge.base.BasePage;
 @Component
 public class ConfirmationPage extends BasePage{
 
-	@FindBy(css = "#finish")
-	private WebElement continueButton;
+	@FindBy(css = ".complete-header")
+	private WebElement thankYouMessage;
+	
+	public String getThankYouMessage() {
+		return thankYouMessage.getText();
+	}
 }

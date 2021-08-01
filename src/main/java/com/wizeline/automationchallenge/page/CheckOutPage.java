@@ -20,4 +20,15 @@ public class CheckOutPage extends BasePage{
 	
 	@FindBy(css = "#continue")
 	private WebElement continueButton;
+		
+	public void clickOnContinue() {
+		click(continueButton);
+	}
+	
+	public void fillOutForm(String name, String lastName, String zipCode) {
+		sendKeys(firstNameInput, name);
+		sendKeys(lastNameInput, lastName);
+		sendKeys(zipCodeInput, zipCode);
+		clickOnContinue();
+	}
 }

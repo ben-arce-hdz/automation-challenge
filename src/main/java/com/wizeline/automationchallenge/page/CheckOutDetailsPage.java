@@ -9,10 +9,10 @@ import com.wizeline.automationchallenge.base.BasePage;
 @Component
 public class CheckOutDetailsPage extends BasePage{
 
-	@FindBy(css = ".complete-header")
-	private WebElement thankYouMessage;
-	
-	public String getThankYouMessage() {
-		return thankYouMessage.getText();
+	@FindBy(css = "#finish")
+	private WebElement finishButton;
+		
+	public void clickOnFinish() {
+		click(finishButton);
 	}
 }
