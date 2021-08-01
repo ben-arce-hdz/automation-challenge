@@ -2,11 +2,10 @@ package com.wizeline.automationchallenge.page;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.springframework.stereotype.Component;
-
+import com.wizeline.automationchallenge.annotations.PageObject;
 import com.wizeline.automationchallenge.base.BasePage;
 
-@Component
+@PageObject
 public class CheckOutPage extends BasePage{
 
 	@FindBy(css = "#first-name")

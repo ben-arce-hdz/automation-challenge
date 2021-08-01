@@ -6,12 +6,14 @@ import java.util.stream.Collectors;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.springframework.stereotype.Component;
+import com.wizeline.automationchallenge.annotations.PageObject;
 import com.wizeline.automationchallenge.base.BasePage;
 
-@Component
+@PageObject
 public class ProductsPage extends BasePage{
 
+	private static final String INVENTORY_BUTTON = ".btn_inventory";
+	
 	@FindBy(css = "#react-burger-menu-btn")
 	private WebElement menuButton;
 	
@@ -43,17 +45,18 @@ public class ProductsPage extends BasePage{
 	
 	public List<Double> getProductPriceList(){
 		return productPriceList.stream()
-				.map(x -> Double.parseDouble(x.getText().substring(1)))
-				.collect(Collectors.toList());
+								.map(x -> x.getText().substring(1))
+								.map(Double::parseDouble)
+								.collect(Collectors.toList());
 	}
 	
 	public void addProductToCart(String productName){
-		WebElement el = productList.stream()
+		WebElement element = productList.stream()
 								   .filter(x -> x.getText().contains(productName))
 								   .findFirst()
 								   .orElseThrow();
-		el = el.findElement(By.cssSelector(".btn_inventory"));
-		click(el);
+		element = element.findElement(By.cssSelector(INVENTORY_BUTTON));
+		click(element);
 	}
 	
 	public void openShoppingCart() {

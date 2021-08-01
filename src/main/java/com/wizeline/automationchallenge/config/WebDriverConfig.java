@@ -9,13 +9,16 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.Scope;
 
+@Lazy
 @Configuration
 public class WebDriverConfig {
 
 	@Bean
 	@ConditionalOnProperty(name="browser", havingValue="firefox")
+	@Scope("browserScope")
 	public WebDriver firefoxDriver() {
 		WebDriverManager.firefoxdriver().setup();
 		return new FirefoxDriver();
@@ -23,6 +26,7 @@ public class WebDriverConfig {
 	
 	@Bean
 	@ConditionalOnMissingBean
+	@Scope("browserScope")
 	public WebDriver chromeDriver() {
 		WebDriverManager.chromedriver().setup();
 		return new ChromeDriver(new ChromeOptions().addArguments("start-maximized"));

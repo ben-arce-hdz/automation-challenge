@@ -2,6 +2,7 @@ package com.wizeline.automationchallenge.stepdefinitions;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import com.wizeline.automationchallenge.base.BaseSteps;
 import com.wizeline.automationchallenge.constants.Constants;
 
 import io.cucumber.datatable.DataTable;

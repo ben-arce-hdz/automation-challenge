@@ -8,16 +8,16 @@ import io.cucumber.testng.CucumberOptions.SnippetType;
 
 @CucumberOptions(features = "classpath:features", 
 glue = "com.wizeline.automationchallenge", 
-tags= {"@purchase"},
 plugin = {"pretty", "json:target/cucumber.json" }, 
 monochrome = true, snippets = SnippetType.CAMELCASE)
 public class TestRunner extends AbstractTestNGCucumberTests {
 
+	//tags= {"@purchase"},,
 	/**
 	 * This method is used for enabling/disabling Parallel Execution.
 	 */
 	@Override
-	@DataProvider(parallel = false)
+	@DataProvider(parallel = true)
 	public Object[][] scenarios() {
 		return super.scenarios();
 	}

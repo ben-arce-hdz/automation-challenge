@@ -1,12 +1,12 @@
-package com.wizeline.automationchallenge.page;
+package com.wizeline.automationchallenge.page.components;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.springframework.stereotype.Component;
 
+import com.wizeline.automationchallenge.annotations.PageObject;
 import com.wizeline.automationchallenge.base.BasePage;
 
-@Component
+@PageObject
 public class MenuBar extends BasePage{
 	
 	@FindBy(css = "#react-burger-menu-btn")

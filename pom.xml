@@ -13,7 +13,7 @@
 	<artifactId>automation-challenge</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>automation-challenge</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Wizeline Demo Framework</description>
 
 	<dependencies>
 		<dependency>
@@ -96,6 +96,12 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<configuration>
 					<testFailureIgnore>true</testFailureIgnore>
+					<properties>
+						<property>
+							<name>dataproviderthreadcount</name>
+							<value>${threadcount}</value>
+						</property>
+					</properties>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -143,5 +149,6 @@
 		<lombok.version>1.18.18</lombok.version>
 		<assertj.version>3.20.2</assertj.version>
 		<cucumber.version>5.6.0</cucumber.version>
+		<threadcount>7</threadcount>
 	</properties>
 </project>

@@ -1,15 +1,11 @@
 package com.wizeline.automationchallenge.stepdefinitions;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.wizeline.automationchallenge.constants.Constants;
-import com.wizeline.automationchallenge.page.CartPage;
+import com.wizeline.automationchallenge.base.BaseSteps;
 import com.wizeline.automationchallenge.page.CheckOutDetailsPage;
 import com.wizeline.automationchallenge.page.CheckOutPage;
 
-import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Then;
 
 public class CheckoutSteps extends BaseSteps{

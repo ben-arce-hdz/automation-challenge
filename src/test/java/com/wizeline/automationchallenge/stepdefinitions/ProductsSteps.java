@@ -2,7 +2,7 @@ package com.wizeline.automationchallenge.stepdefinitions;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import java.util.List;
+import com.wizeline.automationchallenge.base.BaseSteps;
 
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Then;
@@ -21,8 +21,7 @@ public class ProductsSteps extends BaseSteps{
 	
 	@Then("User adds the following items to the cart")
 	public void userAddsTheFollowingItemsToTheCart(DataTable dataTable) {
-	    List<String> productList = dataTable.asList();
-	    for (String product : productList) {
+	    for (String product : dataTable.asList()) {
 			productsPage.addProductToCart(product);
 		} 
 	}

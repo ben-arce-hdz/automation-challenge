@@ -11,5 +11,5 @@ public class Constants {
 	public static final String ERROR_MSG_IS_DISPLAYED = "error message is displayed";
 	public static final String LOGIN_PAGE_NOT_FOUND= "Login page not found";
 	public static final String PRODUCTS_NOT_MATCH= "Products not match";
-	
+	public static final String THANK_YOU_FOR_YOUR_ORDER= "THANK YOU FOR YOUR ORDER";
 }
