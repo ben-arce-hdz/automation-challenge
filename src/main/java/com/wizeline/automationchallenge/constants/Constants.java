@@ -9,4 +9,7 @@ public class Constants {
 	public static final String ERROR_MSG_DISPLAYED_INCORRECTLY = "Error Message is not displayed correctly";
 	public static final String PRODUCTS_PAGE_WAS_NOT_DISPLAYED= "Products Page was not displayed";
 	public static final String ERROR_MSG_IS_DISPLAYED = "error message is displayed";
+	public static final String LOGIN_PAGE_NOT_FOUND= "Login page not found";
+	public static final String PRODUCTS_NOT_MATCH= "Products not match";
+	
 }

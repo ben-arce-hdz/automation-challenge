@@ -21,6 +21,9 @@ public class LoginPage extends BasePage{
 	@FindBy(css = "h3[data-test='error']")
 	private WebElement errorMessage;
 	
+	@FindBy(css = ".login_logo")
+	private WebElement loginLogo;
+	
 	public void login(String userName, String password) {
 		sendKeys(userNameInput, userName);
 		sendKeys(passwordInput, password);
@@ -29,5 +32,9 @@ public class LoginPage extends BasePage{
 	
 	public String getErrorMessage() {
 		return getText(errorMessage);
+	}
+	
+	public boolean isLoginLogoDisplayed() {
+		return isElementDisplayed(loginLogo);
 	}
 }

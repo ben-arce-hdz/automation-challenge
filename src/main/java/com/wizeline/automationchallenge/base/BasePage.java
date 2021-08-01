@@ -1,8 +1,6 @@
 package com.wizeline.automationchallenge.base;
 
 import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.springframework.beans.factory.annotation.Autowired;

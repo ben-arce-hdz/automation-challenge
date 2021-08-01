@@ -3,6 +3,7 @@ package com.wizeline.automationchallenge.stepdefinitions;
 import org.assertj.core.api.SoftAssertions;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.wizeline.automationchallenge.page.CartPage;
 import com.wizeline.automationchallenge.page.LoginPage;
 import com.wizeline.automationchallenge.page.ProductsPage;
 
@@ -15,5 +16,7 @@ public class BaseSteps{
 
 	@Autowired
 	protected ProductsPage productsPage;
-	
+
+	@Autowired
+	protected CartPage shoppingCartPage;
 }

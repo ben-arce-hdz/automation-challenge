@@ -12,9 +12,9 @@ Feature: Log In to Saucedemo Page
 		|	standard_user	|	secret_sauce	|	Products Page was not displayed	|
 		|	incorrect_user	|	incorrect_pass	|	error message is displayed		|
 
-
+	@logout
 	Scenario: Validate Log out action works as expected
 		Given 	User navigates to SauceDemo site
-		When 	I login with "<username>" and "<password>"
+		When 	I login with "standard_user" and "secret_sauce"
 		Then 	I logout from the site
 		And 	Validate logout was succesfully
