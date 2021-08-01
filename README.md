@@ -1,7 +1,53 @@
-# UI Automation Challenge
-UI Automation Framework.
+# UI Automation Framework
+This is a BDD framework that was built with SpringBoot taking whole the advantages of Spring. 
 
-## Installation
+## Getting Started
+
+These instructions will present a guide on how to execute this project.
+
+### Prerequisites
+
+* Java 11
+* Maven
+
+### Installing
+
+Pull the project to your working directory, and add the following dependency to POM.
+
+### Dependencies
+
+Currently are in use the following dependencies.
+
+|Artifact ID                	|   
+|---                        	|
+|spring-boot-starter			|
+|spring-boot-starter-test		|
+|selenium-java              	|
+|webdrivermanager           	|
+|cucumber-spring            	|
+|cucumber-java              	|
+|cucumber-testng            	|
+|testng                     	|
+|lombok                     	|
+|assertj-core              	|
+|cucumber-reporting        	|
+
+### Usage
+
+```java
+Command Line Execution
+
+# returns 'phenomenon'
+foobar.singularize('phenomena')
+```
+
+```java
+IDE Execution
+
+# returns 'phenomenon'
+foobar.singularize('phenomena')
+```
+## Reporting
 
 ###Profiles:
 spring.profiles.active=dev/qa
@@ -16,18 +62,9 @@ mvn clean test -Dspring.profiles.active=dev -Dbrowser=chrome
 
 -Dthreadcount=5
 
-## Usage
-For further reference, please consider the following sections:
-```java
-import foobar
-
-# returns 'phenomenon'
-foobar.singularize('phenomena')
-```
 
 ## Contributing
 Pull requests are welcome.
 
 ## Author
-Benjamin Arce - barce
-
+Feel free to ask [Benjamin Arce](benjamin_arce1991@hotmail.com) if you need some support or there are any questions.

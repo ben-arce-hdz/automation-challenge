@@ -12,7 +12,6 @@ plugin = {"pretty", "json:target/cucumber.json" },
 monochrome = true, snippets = SnippetType.CAMELCASE)
 public class TestRunner extends AbstractTestNGCucumberTests {
 
-	//tags= {"@purchase"},,
 	/**
 	 * This method is used for enabling/disabling Parallel Execution.
 	 */
