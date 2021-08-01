@@ -33,35 +33,42 @@ Currently are in use the following dependencies.
 |cucumber-reporting        	|
 
 ### Usage
+This framework is configurable for different properties like:
+-Parallelism Thread Count
+-Browser (chrome/firefox)
+-Profiles (qa/dev/prod) 
+-Cucumber tags
 
 ```java
 Command Line Execution
 
-# returns 'phenomenon'
-foobar.singularize('phenomena')
+Execution without report:
+mvn clean test
+
+Execution with report:
+mvn clean verify
+
+Execution without report and dev profile:
+mvn clean test -Dspring.profiles.active=dev
+
+Execution without report and specific browser:
+mvn clean test -Dbrowser=chrome
+
+Execution without report and specific tags:
+mvn clean test -Dcucumber.options="--tags @regression"
+
+Execution without report and specific number of threads:
+mvn clean test -Dthreadcount=5
+
+Execution all options:
+mvn clean test -Dbrowser=chrome -Dspring.profiles.active=dev -Dcucumber.options="--tags @regression" -Dthreadcount=5
 ```
 
 ```java
 IDE Execution
 
-# returns 'phenomenon'
-foobar.singularize('phenomena')
+Open the TestRunner class and execute that class in order to execute the tests
 ```
-## Reporting
-
-###Profiles:
-spring.profiles.active=dev/qa
-
-Multi-Browser
-browser=chrome/firefox
-
-Command
-mvn clean test -Dspring.profiles.active=dev -Dbrowser=chrome
-
--Dcucumber.options="--tags @regression"
-
--Dthreadcount=5
-
 
 ## Contributing
 Pull requests are welcome.
