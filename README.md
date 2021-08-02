@@ -12,7 +12,7 @@ These instructions will present a guide on how to execute this project.
 
 ### Installing
 
-Pull the project to your working directory, and add the following dependency to POM.
+Pull the project to your working directory, and download the following dependencies.
 
 ### Dependencies
 
@@ -69,6 +69,9 @@ IDE Execution
 
 Open the TestRunner class and execute that class in order to execute the tests
 ```
+### Reporting
+
+![Report](target/image/report.png)
 
 ## Contributing
 Pull requests are welcome.
