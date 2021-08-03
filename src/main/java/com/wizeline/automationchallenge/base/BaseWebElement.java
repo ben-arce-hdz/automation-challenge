@@ -14,21 +14,22 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public abstract class BaseWebElement {
 
+	private static final String ATTR_NAME="name";
+	
 	@Lazy
 	@Autowired
 	protected FluentWait<WebDriver> wait;
 	
 	public void click(WebElement element) {
 		wait.until(ExpectedConditions.elementToBeClickable(element));
-		log.info("Clicking {}", element.getAttribute("name"));
+		log.info("Clicking {}", element.getAttribute(ATTR_NAME));
 		element.click();
 	};
 	
 	public void selectDropDownItemByText(WebElement element, String text) {
 		wait.until(ExpectedConditions.elementToBeClickable(element));
 		log.info("Selecting {}", text);
-		DropDownUtil dp = new DropDownUtil(element);
-		dp.selectByName(text);
+		DropDownUtil.selectByName(element,text);
 	};
 	
 	public void sendKeys(WebElement element, String text) {

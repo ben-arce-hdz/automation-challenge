@@ -2,22 +2,16 @@ package com.wizeline.automationchallenge.stepdefinitions;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.wizeline.automationchallenge.base.BaseSteps;
 import com.wizeline.automationchallenge.constants.Constants;
-import com.wizeline.automationchallenge.page.components.MenuBar;
-
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 @SpringBootTest
 public class LoginSteps extends BaseSteps{
-	
-	@Autowired
-	protected MenuBar menu;
 	
 	@Given("User navigates to SauceDemo site")
 	public void userNavigatesToSauceDemoSite() {

@@ -3,18 +3,23 @@ package com.wizeline.automationchallenge.util;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
+import lombok.experimental.UtilityClass;
+
+@UtilityClass
 public class DropDownUtil {
 	private Select select;
-	
-	public DropDownUtil(WebElement element) {
-		select= new Select(element);
-	}
-	
-	public void selectByName(String text) {
+
+	public void selectByName(WebElement element, String text) {
+		initSelect(element);
 		select.selectByVisibleText(text);
 	}
 	
-	public void selectByValue(String value) {
-		select.selectByValue(value);;
+	public void selectByValue(WebElement element, String value) {
+		initSelect(element);
+		select.selectByValue(value);
+	}
+	
+	private void initSelect(WebElement element) {
+		select= new Select(element);
 	}
 }

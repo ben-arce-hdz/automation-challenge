@@ -42,8 +42,8 @@ class BrowserScopePostProcessor implements BeanFactoryPostProcessor {
 }
 
 /**
- * This class validates override the method "get" in order to add a condition if
- * a WebDriver sessionId is quit for some reason, it returns a new webdriver
+ * This class override the method "get" in order to add a condition if
+ * a WebDriver sessionId is quitted for some reason, it returns a new webdriver
  * sessionId.
  * 
  * @author barce
