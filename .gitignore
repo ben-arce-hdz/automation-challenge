@@ -2,6 +2,7 @@ HELP.md
 test-output/*
 target/*
 !target/image/
+!target/screenshots/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
