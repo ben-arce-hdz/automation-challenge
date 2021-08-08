@@ -149,14 +149,12 @@
 							</includes>
 							<excludes>
 								<exclude>image/*</exclude>
-								<exclude>screenshots</exclude>
+								<exclude>screenshots/.gitignore</exclude>
 							</excludes>
 						</fileset>
 					</filesets>
 				</configuration>
-
 			</plugin>
-
 		</plugins>
 	</build>
 
