@@ -14,4 +14,7 @@ public class Constants {
 	public static final String PRODUCTS_NOT_MATCH= "Products not match";
 	public static final String THANK_YOU_FOR_YOUR_ORDER= "THANK YOU FOR YOUR ORDER";
 	public static final String IMAGE_PNG = "image/png";
+	public static final String DISABLE_GPU = "--disable-gpu";
+	public static final String HEADLESS = "--headless";
+	public static final String START_MAXIMIZED = "start-maximized";
 }
