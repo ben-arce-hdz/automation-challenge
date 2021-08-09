@@ -1,3 +1,4 @@
+
 package com.wizeline.automationchallenge.constants;
 
 import lombok.experimental.UtilityClass;
@@ -12,4 +13,5 @@ public class Constants {
 	public static final String LOGIN_PAGE_NOT_FOUND= "Login page not found";
 	public static final String PRODUCTS_NOT_MATCH= "Products not match";
 	public static final String THANK_YOU_FOR_YOUR_ORDER= "THANK YOU FOR YOUR ORDER";
+	public static final String IMAGE_PNG = "image/png";
 }

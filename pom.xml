@@ -83,7 +83,7 @@
 			<version>${cucumber.report.version}</version>
 		</dependency>
 	</dependencies>
-
+	
 	<build>
 		<plugins>
 			<plugin>
@@ -127,7 +127,7 @@
 								<param>sample.properties</param>
 								<param>other.properties</param>
 							</classificationFiles>
-							<parallelTesting>false</parallelTesting>
+							<parallelTesting>true</parallelTesting>
 							<mergeFeaturesById>false</mergeFeaturesById>
 							<mergeFeaturesWithRetest>false</mergeFeaturesWithRetest>
 							<checkBuildResult>false</checkBuildResult>
@@ -157,7 +157,6 @@
 			</plugin>
 		</plugins>
 	</build>
-
 
 	<properties>
 		<java.version>11</java.version>

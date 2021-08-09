@@ -12,16 +12,16 @@ import java.time.Duration;
 @LazyConfiguration
 public class FluentWaitConfig {
 
-  @Value("${webdriver.wait.timeout:30}")
-  private int timeOut;
-  
-  private static final int POLLING = 5;
+	private static final int POLLING = 5;
 
-  @Bean
-  public FluentWait<WebDriver> wait(WebDriver driver){
-	return new FluentWait<WebDriver>(driver)
-			    .withTimeout(Duration.ofSeconds(timeOut))
-			    .pollingEvery(Duration.ofSeconds(POLLING))
-			    .ignoring(NoSuchElementException.class);  
-  }
+	@Value("${webdriver.wait.timeout:30}")
+	private int timeOut;
+
+	@Bean
+	public FluentWait<WebDriver> wait(WebDriver driver) {
+		return new FluentWait<WebDriver>(driver)
+					.withTimeout(Duration.ofSeconds(timeOut))
+					.pollingEvery(Duration.ofSeconds(POLLING))
+					.ignoring(NoSuchElementException.class);
+	}
 }
