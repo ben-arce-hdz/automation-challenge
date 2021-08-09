@@ -35,7 +35,8 @@ Currently are in use the following dependencies.
 ### Usage
 This framework is configurable for different properties like:
 <br /> -Parallelism Thread Count
-<br /> -Browser (chrome/firefox)
+<br /> -Browser (chrome/firefox/edge)
+<br /> -headless (true/false)
 <br /> -Profiles (qa/dev/prod) 
 <br /> -Cucumber tags
 
@@ -54,6 +55,9 @@ mvn clean verify -Dspring.profiles.active=dev
 Execution specific browser:
 mvn clean verify -Dbrowser=chrome
 
+Execution specific browser:
+mvn clean verify -Dbrowser.isheadless=true
+
 Execution specific tags:
 mvn clean verify -Dcucumber.options="--tags @regression"
 
@@ -61,7 +65,7 @@ Execution specific number of threads:
 mvn clean verify -Dthreadcount=5
 
 Execution all options:
-mvn clean verify -Dbrowser=chrome -Dspring.profiles.active=dev -Dcucumber.options="--tags @regression" -Dthreadcount=5
+mvn clean verify -Dbrowser=chrome -Dbrowser.isheadless=true -Dspring.profiles.active=dev -Dcucumber.options="--tags @regression" -Dthreadcount=5
 ```
 
 ```java
