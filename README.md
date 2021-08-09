@@ -36,7 +36,7 @@ Currently are in use the following dependencies.
 This framework is configurable for different properties like:
 <br /> -Parallelism Thread Count
 <br /> -Browser (chrome/firefox/edge)
-<br /> -headless (true/false)
+<br /> -Headless (true/false)
 <br /> -Profiles (qa/dev/prod) 
 <br /> -Cucumber tags
 
@@ -55,7 +55,7 @@ mvn clean verify -Dspring.profiles.active=dev
 Execution specific browser:
 mvn clean verify -Dbrowser=chrome
 
-Execution specific browser:
+Execution headless mode:
 mvn clean verify -Dbrowser.isheadless=true
 
 Execution specific tags:
