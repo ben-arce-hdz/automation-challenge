@@ -3,6 +3,7 @@ package com.wizeline.automationchallenge.hooks;
 import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 
 import com.wizeline.automationchallenge.constants.Constants;
 import com.wizeline.automationchallenge.page.LoginPage;
@@ -15,9 +16,11 @@ import io.cucumber.java.Scenario;
 
 public class Hooks {
 	
+	@Lazy
 	@Autowired
 	private LoginPage loginPage;
 	
+	@Lazy
 	@Autowired
 	private ScreenShotUtil screenShot;
 
