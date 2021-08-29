@@ -8,7 +8,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -21,8 +20,6 @@ import com.wizeline.automationchallenge.annotations.ParallelScope;
 @Profile("remote")
 public class RemoteWebDriverConfig {
 
-	private final DesiredCapabilities dc = new DesiredCapabilities();
-	
 	@Value("${browser.isheadless:false}")
 	private boolean isHeadless;
 	
@@ -35,8 +32,7 @@ public class RemoteWebDriverConfig {
 		FirefoxOptions fo = new FirefoxOptions();
 		if (isHeadless)
 			fo.addArguments(DISABLE_GPU, HEADLESS);
-		dc.setCapability(FirefoxOptions.FIREFOX_OPTIONS, fo);
-		return new RemoteWebDriver(this.url, dc);
+		return new RemoteWebDriver(this.url, fo);
 	}
 	
 	@ParallelScope
@@ -45,8 +41,7 @@ public class RemoteWebDriverConfig {
 		EdgeOptions eo = new EdgeOptions();
 		if (isHeadless)
 			eo.addArguments(DISABLE_GPU, HEADLESS);
-		dc.setCapability(EdgeOptions.CAPABILITY, eo);
-		return new RemoteWebDriver(this.url,dc);
+		return new RemoteWebDriver(this.url,eo);
 	}
 	
 	@ParallelScope
@@ -55,7 +50,6 @@ public class RemoteWebDriverConfig {
 		ChromeOptions co = new ChromeOptions();
 		if (isHeadless)
 			co.addArguments(DISABLE_GPU, HEADLESS, DISABLE_DEV_SHM, NO_SANDBOX);
-        dc.setCapability(ChromeOptions.CAPABILITY, co);
-		return new RemoteWebDriver(this.url,dc);
+		return new RemoteWebDriver(this.url,co);
 	}
 }
