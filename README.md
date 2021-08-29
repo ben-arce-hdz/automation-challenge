@@ -29,8 +29,8 @@ Currently are in use the following dependencies.
 |cucumber-testng            	|
 |testng                     	|
 |lombok                     	|
-|assertj-core              	|
-|cucumber-reporting        	|
+|assertj-core              		|
+|cucumber-reporting        		|
 
 ### Usage
 This framework is configurable for different properties like:
@@ -40,6 +40,7 @@ This framework is configurable for different properties like:
 <br /> -Profiles (qa/dev/prod) 
 <br /> -Cucumber tags
 
+#### Local
 ```java
 Command Line Execution
 
@@ -73,6 +74,14 @@ IDE Execution
 
 Open the TestRunner class and execute that class in order to execute the tests
 ```
+
+#### Remote
+```java
+
+Execution all options:
+mvn clean verify -Dbrowser=chrome -Dbrowser.isheadless=true -Dspring.profiles.active=dev -Dcucumber.options="--tags @regression" -Dthreadcount=5
+```
+
 ### Reporting
 
 ![Report](target/image/report.png)
