@@ -9,6 +9,8 @@ These instructions will present a guide on how to execute this project.
 
 * Java 11
 * Maven
+* Jenkins - Optional
+* Docker - Optional
 
 ### Installing
 
@@ -40,7 +42,7 @@ This framework is configurable for different properties like:
 <br /> -Profiles (qa/dev/prod) 
 <br /> -Cucumber tags
 
-#### Local
+#### Local Execution  
 ```java
 Command Line Execution
 
@@ -69,18 +71,39 @@ Execution all options:
 mvn clean verify -Dbrowser=chrome -Dbrowser.isheadless=true -Dspring.profiles.active=dev -Dcucumber.options="--tags @regression" -Dthreadcount=5
 ```
 
+#### Remote Execution 
+Open a Command Line and go to **docker** folder
+Execute:
+```
+docker-compose up
+```
+that command will up Selenium Grid
+
+<br /> Execute the tests in Selenium Grid.
+ 
+```java
+Command Line Execution
+
+mvn verify -Dbrowser=edge -Dbrowser.isheadless=false -Dspring.profiles.active=remote,dev -Dcucumber.options="--tags @regression" -Dthreadcount=5
+```
+
 ```java
 IDE Execution
 
 Open the TestRunner class and execute that class in order to execute the tests
 ```
 
-#### Remote
-```java
+#### Jenkins Configuration
+This framework can be executed using Jenkins and Selenium Grid 4(Docker).
+<br /> Assumptions:
+<br /> Jenkins is installed.
+<br /> Docker is installed.
 
-Execution all options:
-mvn clean verify -Dbrowser=chrome -Dbrowser.isheadless=true -Dspring.profiles.active=dev -Dcucumber.options="--tags @regression" -Dthreadcount=5
-```
+<br /> Create a pipeline project and use the file **JenkinsFile.pipeline**, which is under **jenkins** folder
+
+<br /> The following job will run the tests in Selenium Grid
+<br /> This is how the job looks like:
+![Report](target/image/pipeline.png)
 
 ### Reporting
 
