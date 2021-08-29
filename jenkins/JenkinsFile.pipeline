@@ -15,7 +15,7 @@ pipeline {
                     currentBuild.displayName = "Selenium Test - "+ params.environment + " - " + params.browser
                 }
 				checkout([$class: 'GitSCM', 
-				branches: [[name: '*/test']], 
+				branches: [[name: '*/master']], 
 				extensions: [], 
 				userRemoteConfigs: [[url: 'https://github.com/ben-arce-hdz/automation-challenge']]])
 			}
