@@ -1,0 +1,64 @@
+pipeline {
+	agent any
+	
+	parameters{
+        choice(name: 'environment', choices: 'dev\nqa\nuat', description: 'Select the environment under test')
+		choice(name: 'browser', choices: 'chrome\nfirefox\nedge', description: 'Select the browser')
+        booleanParam( name: 'headless', defaultValue: false, description: 'If flag is checked, browser will run without UI.')
+		string(defaultValue: "regression", description: 'cucumber tags', name: 'tags')
+		string(defaultValue: "7", description: 'Parallel Testing - Num of Threads', name: 'threadCount')
+    }
+    stages {
+		stage('Clone Project from Repository') {
+            steps {
+                script{
+                    currentBuild.displayName = "Selenium Test - "+ params.environment + " - " + params.browser
+                }
+				checkout([$class: 'GitSCM', 
+				branches: [[name: '*/test']], 
+				extensions: [], 
+				userRemoteConfigs: [[url: 'https://github.com/ben-arce-hdz/automation-challenge']]])
+			}
+        }
+        stage('Build Project') {
+            steps {
+                bat 'mvn clean compile'
+            }
+        }
+        stage('Running Selenium Grid') {
+            steps {
+                dir("docker/"){
+					bat 'docker-compose -f docker-compose.yml up -d'
+				}
+            }
+        }
+        stage('Selenium Tests') {
+            steps {
+                bat "mvn verify -Dbrowser=${browser} -Dbrowser.isheadless=${headless} -Dspring.profiles.active=remote,${environment} -Dcucumber.options=\"--tags @${tags}\" -Dthreadcount=${threadCount}"
+            }
+        }        
+    }
+	post{
+        always{
+			echo "Shutdown Selenium Grid"
+			dir("docker/"){
+				bat 'docker-compose down'
+			}
+			
+			
+			junit 'target/surefire-reports/junitreports/*TestRunner.xml'
+
+            echo "Publising HTML Report"
+			publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, 
+			reportDir: 'target/cucumber-html-reports/', 
+			reportFiles: 'overview-features.html', 
+			reportName: 'Selenium Test Report', reportTitles: ''])
+            
+        }
+        failure{
+            script {
+                currentBuild.result = 'FAILURE'
+            }
+        }
+    }
+}

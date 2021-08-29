@@ -7,7 +7,7 @@ import io.cucumber.testng.CucumberOptions;
 import io.cucumber.testng.CucumberOptions.SnippetType;
 
 @CucumberOptions(features = "classpath:features", 
-glue = "com.wizeline.automationchallenge", 
+glue = "com.wizeline.automationchallenge",
 plugin = {"pretty", "json:target/cucumber.json" }, 
 monochrome = true, snippets = SnippetType.CAMELCASE)
 public class TestRunner extends AbstractTestNGCucumberTests {
