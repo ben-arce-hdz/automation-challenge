@@ -72,15 +72,13 @@ mvn clean verify -Dbrowser=chrome -Dbrowser.isheadless=true -Dspring.profiles.ac
 ```
 
 #### Remote Execution 
-Open a Command Line and go to **docker** folder, and execute:
+Open a Command Line and go to **docker** folder, and execute the following command(it will up Selenium Grid):
 ```
 docker-compose up
 ```
-that command will up Selenium Grid.
  
-```java
-Command Line Execution
-
+Execution Tests
+```
 mvn verify -Dbrowser=edge -Dbrowser.isheadless=false -Dspring.profiles.active=remote,dev -Dcucumber.options="--tags @regression" -Dthreadcount=5
 ```
 
@@ -100,7 +98,7 @@ This framework can be executed using Jenkins and Selenium Grid 4(Docker).
 
 <br /> The following job will run the tests in Selenium Grid
 <br /> This is how the job looks like:
-![Report](target/image/pipeline.png)
+<br /> ![Report](target/image/pipeline.png)
 
 ### Reporting
 
