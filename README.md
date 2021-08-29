@@ -93,10 +93,8 @@ This framework can be executed using Jenkins and Selenium Grid 4(Docker).
 <br /> Assumptions:
 <br /> * Jenkins is installed.
 <br /> * Docker is installed.
-
 <br /> Create a pipeline project and use the file **JenkinsFile.pipeline**, which is under **jenkins** folder
 <br /> The following job will run the tests in Selenium Grid
-<br /> This is how the job looks like:
 <br /> ![Report](target/image/pipeline.png)
 
 ### Reporting
