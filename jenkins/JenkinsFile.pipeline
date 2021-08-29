@@ -12,31 +12,29 @@ pipeline {
 		stage('Clone Project from Repository') {
             steps {
                 script{
-                    currentBuild.displayName = "Selenium Test - "+ params.environment
+                    currentBuild.displayName = "Selenium Test - "+ params.environment + " - " + params.browser
                 }
 				checkout([$class: 'GitSCM', 
-				branches: [[name: '*/master']], 
+				branches: [[name: '*/test']], 
 				extensions: [], 
 				userRemoteConfigs: [[url: 'https://github.com/ben-arce-hdz/automation-challenge']]])
 			}
         }
         stage('Build Project') {
             steps {
-                bat 'dir'
                 bat 'mvn clean compile'
             }
         }
         stage('Running Selenium Grid') {
             steps {
                 dir("docker/"){
-                    bat 'dir'
 					bat 'docker-compose -f docker-compose.yml up -d'
 				}
             }
         }
         stage('Selenium Tests') {
             steps {
-                bat 'mvn verify -Dbrowser=${browser} -Dbrowser.isheadless=${headless} -Dspring.profiles.active=${environment} -Dcucumber.options="--tags @${tags}" -Dthreadcount=${threadCount}'
+                bat "mvn verify -Dbrowser=${browser} -Dbrowser.isheadless=${headless} -Dspring.profiles.active=remote,${environment} -Dcucumber.options=\"--tags @${tags}\" -Dthreadcount=${threadCount}"
             }
         }        
     }
@@ -46,7 +44,10 @@ pipeline {
 			dir("docker/"){
 				bat 'docker-compose down'
 			}
-				
+			
+			
+			junit 'target/surefire-reports/junitreports/*TestRunner.xml'
+
             echo "Publising HTML Report"
 			publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, 
 			reportDir: 'target/cucumber-html-reports/', 
