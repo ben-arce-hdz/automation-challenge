@@ -36,7 +36,7 @@ public class BrowserScopeConfig {
 class BrowserScopePostProcessor implements BeanFactoryPostProcessor {
 
 	@Override
-	public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
+	public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory){
 		beanFactory.registerScope("browserScope", new BrowserScope());
 	}
 }
@@ -59,10 +59,5 @@ class BrowserScope extends SimpleThreadScope {
 			o = super.get(name, objectFactory);
 		}
 		return o;
-	}
-
-	@Override
-	public void registerDestructionCallback(String name, Runnable callback) {
-		super.registerDestructionCallback(name, callback);
 	}
 }

@@ -23,7 +23,6 @@ public class ScreenShotUtil {
 	private static final String PNG= ".png";
 	private static final String IMAGE= "image_";
 	private final SimpleDateFormat sdf = new SimpleDateFormat("yy.MM.dd.HH.mm.ss");
-	private Timestamp timestamp;
 
 	@Value("${screenshot.path}")
 	private Path path;
@@ -33,7 +32,7 @@ public class ScreenShotUtil {
 	
 	public byte[] takeScreenShot() throws IOException {
 		File sourceFile = this.ctx.getBean(TakesScreenshot.class).getScreenshotAs(OutputType.FILE);
-		timestamp = new Timestamp(System.currentTimeMillis());
+		Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 		FileCopyUtils.copy(sourceFile, path.resolve(IMAGE + sdf.format(timestamp) + PNG).toFile());
 		return FileUtils.readFileToByteArray(sourceFile);
 	}
