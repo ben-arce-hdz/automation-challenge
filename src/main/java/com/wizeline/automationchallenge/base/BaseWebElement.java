@@ -24,29 +24,29 @@ public abstract class BaseWebElement {
 		wait.until(ExpectedConditions.elementToBeClickable(element));
 		log.info("Clicking {}", element.getAttribute(ATTR_NAME));
 		element.click();
-	};
+	}
 	
 	public void selectDropDownItemByText(WebElement element, String text) {
 		wait.until(ExpectedConditions.elementToBeClickable(element));
 		log.info("Selecting {}", text);
 		DropDownUtil.selectByName(element,text);
-	};
+	}
 	
 	public void sendKeys(WebElement element, String text) {
 		wait.until(ExpectedConditions.elementToBeClickable(element));
 		log.info("Entering {}", text);
 		element.sendKeys(text);
-	};
+	}
 	
 	public String getText(WebElement element) {
 		wait.until(ExpectedConditions.elementToBeClickable(element));
 		log.info("Extracting text from {}", element.getText());
 		return element.getText();
-	};
+	}
 	
 	public boolean isElementDisplayed(WebElement element) {
 		wait.until(ExpectedConditions.elementToBeClickable(element));
 		log.info("Verifying if {} elem is displayed", element.getText());
 		return element.isDisplayed();
-	};
+	}
 }
