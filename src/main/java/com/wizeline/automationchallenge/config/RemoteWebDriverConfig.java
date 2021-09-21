@@ -29,27 +29,27 @@ public class RemoteWebDriverConfig {
 	@ParallelScope
 	@ConditionalOnProperty(name="browser", havingValue="firefox")
 	public WebDriver remoteFirefoxDriver() {
-		FirefoxOptions fo = new FirefoxOptions();
+		var firefoxOptions = new FirefoxOptions();
 		if (isHeadless)
-			fo.addArguments(DISABLE_GPU, HEADLESS);
-		return new RemoteWebDriver(this.url, fo);
+			firefoxOptions.addArguments(DISABLE_GPU, HEADLESS);
+		return new RemoteWebDriver(this.url, firefoxOptions);
 	}
 	
 	@ParallelScope
 	@ConditionalOnProperty(name="browser", havingValue="edge")
 	public WebDriver remoteEdgeDriver() {
-		EdgeOptions eo = new EdgeOptions();
+		var edgeOptions = new EdgeOptions();
 		if (isHeadless)
-			eo.addArguments(DISABLE_GPU, HEADLESS);
-		return new RemoteWebDriver(this.url,eo);
+			edgeOptions.addArguments(DISABLE_GPU, HEADLESS);
+		return new RemoteWebDriver(this.url,edgeOptions);
 	}
 	
 	@ParallelScope
 	@ConditionalOnMissingBean
 	public WebDriver remoteChromeDriver() {	
-		ChromeOptions co = new ChromeOptions();
+		var chromeOptions = new ChromeOptions();
 		if (isHeadless)
-			co.addArguments(DISABLE_GPU, HEADLESS, DISABLE_DEV_SHM, NO_SANDBOX);
-		return new RemoteWebDriver(this.url,co);
+			chromeOptions.addArguments(DISABLE_GPU, HEADLESS, DISABLE_DEV_SHM, NO_SANDBOX);
+		return new RemoteWebDriver(this.url,chromeOptions);
 	}
 }

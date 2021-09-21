@@ -3,7 +3,6 @@ package com.wizeline.automationchallenge.config;
 import java.util.Objects;
 
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.remote.SessionId;
 import org.springframework.beans.factory.ObjectFactory;
 import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
@@ -21,6 +20,7 @@ import org.springframework.context.support.SimpleThreadScope;
  */
 @Configuration
 public class BrowserScopeConfig {
+	
 	@Bean
 	public static BeanFactoryPostProcessor beanFactoryPostProcessor() {
 		return new BrowserScopePostProcessor();
@@ -51,12 +51,12 @@ class BrowserScope extends SimpleThreadScope {
 
 	@Override
 	public Object get(String name, ObjectFactory<?> objectFactory) {
-		Object o = super.get(name, objectFactory);
-		SessionId sessionId = ((RemoteWebDriver) o).getSessionId();
+		var object = super.get(name, objectFactory);
+		var sessionId = ((RemoteWebDriver) object).getSessionId();
 		if (Objects.isNull(sessionId)) {
 			super.remove(name);
-			o = super.get(name, objectFactory);
+			object = super.get(name, objectFactory);
 		}
-		return o;
+		return object;
 	}
 }

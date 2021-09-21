@@ -20,6 +20,34 @@ pipeline {
 				userRemoteConfigs: [[url: 'https://github.com/ben-arce-hdz/automation-challenge']]])
 			}
         }
+        /*
+        stage('SonarQube Analysis') {
+            steps {
+                withSonarQubeEnv('SonarQube-Jenkins') {
+                    bat 'mvn sonar:sonar -Dsonar.projectKey=automation -Dsonar.host.url=http://localhost:9000 -Dsonar.login=c68dcfc1c1bcc51200b903452f6a2c8d0dd0b456'
+                }
+            }
+        }
+        stage('Quality Check') {
+            steps {
+               timeout(time: 1, unit: 'MINUTES') {
+                    waitForQualityGate abortPipeline: true
+                }
+               /* timeout(time: 2, unit: 'MINUTES') {
+                    waitForQualityGate abortPipeline: true
+                }*/
+            /*script{
+                timeout(time: 1, unit: 'MINUTES'){
+                    def qg = waitForQualityGate()
+                    if(qg.status != 'OK' || qg.status != 'SUCCESS'){
+                        error "Pipeline aborted due to quality gate failure: ${qg.status}"
+                    }
+                    echo 'corriendo ${qg.status}'
+                }
+                }*/
+            }
+        }
+        */
         stage('Build Project') {
             steps {
                 bat 'mvn clean compile'

@@ -1,6 +1,5 @@
 package com.wizeline.automationchallenge.util;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.sql.Timestamp;
@@ -31,8 +30,8 @@ public class ScreenShotUtil {
 	private ApplicationContext ctx;
 	
 	public byte[] takeScreenShot() throws IOException {
-		File sourceFile = this.ctx.getBean(TakesScreenshot.class).getScreenshotAs(OutputType.FILE);
-		Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+		var sourceFile = this.ctx.getBean(TakesScreenshot.class).getScreenshotAs(OutputType.FILE);
+		var timestamp = new Timestamp(System.currentTimeMillis());
 		FileCopyUtils.copy(sourceFile, path.resolve(IMAGE + sdf.format(timestamp) + PNG).toFile());
 		return FileUtils.readFileToByteArray(sourceFile);
 	}

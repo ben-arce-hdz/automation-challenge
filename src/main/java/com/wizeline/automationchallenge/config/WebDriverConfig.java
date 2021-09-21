@@ -29,31 +29,31 @@ public class WebDriverConfig {
 	@ConditionalOnProperty(name = "browser", havingValue = "firefox")
 	public WebDriver firefoxDriver() {
 		WebDriverManager.firefoxdriver().setup();
-		FirefoxOptions fo = new FirefoxOptions();
+		var firefoxOptions = new FirefoxOptions();
 		if (isHeadless)
-			fo.addArguments(DISABLE_GPU, HEADLESS);
-		return new FirefoxDriver(fo);
+			firefoxOptions.addArguments(DISABLE_GPU, HEADLESS);
+		return new FirefoxDriver(firefoxOptions);
 	}
 	
 	@ParallelScope
 	@ConditionalOnProperty(name = "browser", havingValue = "edge")
 	public WebDriver edgeDriver() {
 		WebDriverManager.edgedriver().setup();
-		EdgeOptions eo = new EdgeOptions();
+		var edgeOptions = new EdgeOptions();
 		if (isHeadless)
-			eo.addArguments(DISABLE_GPU, HEADLESS);
-		eo.addArguments(START_MAXIMIZED);
-		return new EdgeDriver(eo);
+			edgeOptions.addArguments(DISABLE_GPU, HEADLESS);
+		edgeOptions.addArguments(START_MAXIMIZED);
+		return new EdgeDriver(edgeOptions);
 	}
 
 	@ParallelScope
 	@ConditionalOnMissingBean
 	public WebDriver chromeDriver() {
 		WebDriverManager.chromedriver().setup();
-		ChromeOptions co = new ChromeOptions();
+		var chromeOptions = new ChromeOptions();
 		if (isHeadless)
-			co.addArguments(DISABLE_GPU, HEADLESS);
-		co.addArguments(START_MAXIMIZED);
-		return new ChromeDriver(co);
+			chromeOptions.addArguments(DISABLE_GPU, HEADLESS);
+		chromeOptions.addArguments(START_MAXIMIZED);
+		return new ChromeDriver(chromeOptions);
 	}
 }
